@@ -9,8 +9,8 @@
     let id = 3, b = true, authorization = false, c = 0;
     let arr = [{id: 1, name: "Vasily", login: "Vasa", pass: "qwert"},
                {id: 2, name: "Maxim", login: "Max", pass: "Bigmax"},
-               {id: 3, name: "Stanislav", login: "Sts", pass: "Stasik"}  ];
-    while (b== true) {
+               {id: 3, name: "Stanislav", login: "Sts", pass: "Stasik"}];
+    while (b === true) {
       let cif = prompt("выбери 1 - чтобы зарегистрироваться" +
         "\n" + "выбери 2 - чтобы войти" +
         "\n" + "выбери 3 - чтобы увидеть вошедшего пользователя" +
@@ -18,8 +18,8 @@
         "\n" + "выбери 5 - чтобы выйти из аккаунта" +
         "\n" + "выбери 6 - чтобы выйти из меню");
 
-      if (cif == 1) {
-        if (authorization == false) {
+      if (cif === '1') {
+        if (authorization === false) {
           let newUser = {};
           let a = 0;
           let name = prompt("Ведите Имя");
@@ -27,10 +27,10 @@
           let pass = prompt("Ведите Пароль");
           let pass2 = prompt("Повторите Пароль");
           for (let u of arr) {
-            if (u.login == login)
+            if (u.login === login)
               a = a + 1;
           }
-          if (a == 0 && pass == pass2) {
+          if (a === 0 && pass === pass2) {
             newUser.id = id + 1;
             newUser.name = name;
             newUser.login = login;
@@ -42,33 +42,32 @@
           a = 0;
         } else
           alert("Необходимо выйти из системы")
-      } else if (cif == 2) {
+      } else if (cif === '2') {
         let login = prompt("Ведите Логин");
         let pass = prompt("Ведите Пароль");
         for (let z of arr) {
-          if (z.login == login && z.pass == pass) {
+          if (z.login === login && z.pass === pass) {
             c = z.id - 1;
             authorization = true;
           }
         }
-        if (authorization == "true")
+        if (authorization === true)
           alert("Добро пожаловать: " + arr[c].name)
         else
           alert("Неверный Логин или Пароль")
-      } else if (cif == 3) {
-        if (authorization == true)
+      } else if (cif === '3') {
+        if (authorization === true)
           alert(arr[c].name);
         else
           alert("Вход не выполнен")
-      } else if (cif == 4) {
+      } else if (cif === '4') {
         if (authorization == true) {
-          let pass = prompt("Ведите Пароль");
-          arr[c].pass = pass;
+          arr[c].pass = prompt("Ведите Пароль");
         } else
           alert("Необходимо выполнить вход")
-      } else if (cif == 5) {
+      } else if (cif === 5) {
         let authorization = false;
-      } else if (cif == 6) {
+      } else if (cif === 6) {
         b = false;
         break;
       } else {
