@@ -10,7 +10,7 @@
   let arr = [{id: 1, name: "Vasily", login: "Vasa", pass: "qwert"},
     {id: 2, name: "Maxim", login: "Max", pass: "Bigmax"},
     {id: 3, name: "Stanislav", login: "Sts", pass: "Stasik"}  ];
-  while (b== true) {
+  while (b) {
     let cif = prompt("выбери 1 - чтобы зарегистрироваться" +
       "\n" + "выбери 2 - чтобы войти" +
       "\n" + "выбери 3 - чтобы увидеть вошедшего пользователя" +
@@ -45,25 +45,25 @@
     } else if (cif == 2) {
       let login = prompt("Ведите Логин");
       let pass = prompt("Ведите Пароль");
-      for (let z of arr) {
-        if (z.login == login && z.pass == pass) {
-          c = z.id - 1;
+      for (let i = 0; i<arr.length; i++) {
+        if (arr[i].login == login && arr[i].pass == pass) {
+          c = i;
           authorization = true;
         }
       }
-      if (authorization == "true")
+      if (authorization)
         alert("Добро пожаловать: " + arr[c].name)
       else
         alert("Неверный Логин или Пароль")
     } else if (cif == 3) {
-      if (authorization == true)
+      if (authorization)
         alert(arr[c].name);
       else
         alert("Вход не выполнен")
     } else if (cif == 4) {
-      if (authorization == true) {
-        let pass = prompt("Ведите Пароль");
-        arr[c].pass = pass;
+      if (authorization) {
+        let pa = prompt("Ведите новый Пароль");
+        arr[c].pass = pa;
       } else
         alert("Необходимо выполнить вход")
     } else if (cif == 5) {
